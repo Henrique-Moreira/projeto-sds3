@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.henriquemoreira.dsvendas.dto.SaleDTO;
+import com.henriquemoreira.dsvendas.dto.SaleSucessDTO;
 import com.henriquemoreira.dsvendas.dto.SaleSumDTO;
 import com.henriquemoreira.dsvendas.services.SaleService;
 
@@ -27,9 +28,15 @@ public class SaleController {
 		return ResponseEntity.ok(list);
 	}
 	
-	@GetMapping(value = "/sum-by-seller")
+	@GetMapping(value = "/amount-by-seller")
 	public ResponseEntity<List<SaleSumDTO>> amountGroupedBySeller() {
 		List<SaleSumDTO> list = service.amountGroupedBySeller();
+		return ResponseEntity.ok(list);
+	}
+	
+	@GetMapping(value = "/sucess-by-seller")
+	public ResponseEntity<List<SaleSucessDTO>> successGroupedBySeller() {
+		List<SaleSucessDTO> list = service.successGroupedBySeller();
 		return ResponseEntity.ok(list);
 	}
 }
