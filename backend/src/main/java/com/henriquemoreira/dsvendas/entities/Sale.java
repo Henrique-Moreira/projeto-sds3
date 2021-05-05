@@ -24,7 +24,6 @@ public class Sale {
 	
 	@ManyToOne
 	@JoinColumn(name = "seller_id")
-	
 	private Seller seller;
 	
 	public Sale() { }
